@@ -1,7 +1,5 @@
 # Bouncing Balls
 
-[Codewars](https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/go)
-
 A child is playing with a ball on the nth floor of a tall building. The height of this floor, h, is known.
 
 He drops the ball out of the window. The ball bounces (for example), to two-thirds of its height (a bounce of 0.66).
@@ -28,3 +26,4 @@ The ball can only be seen if the height of the rebounding ball is strictly great
 
 (Condition 2) not fulfilled).
 ```
+[Codewars](https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/go)
