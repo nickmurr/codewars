@@ -16,15 +16,14 @@ func main() {
 }
 
 func BouncingBall1(h, bounce, window float64) (times int) {
+	times = -1
 	if h > 0 && bounce > 0 && bounce < 1 && window < h {
-		times = -1
 		for h > window {
 			times += 2
 			h *= bounce
 		}
-		return times
 	}
-	return -1
+	return times
 }
 
 func BouncingBall2(h, bounce, window float64) int {
