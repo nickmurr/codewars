@@ -12,3 +12,5 @@ Easy case is when the list is made up of only positive numbers and the maximum s
 Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
 
 [Codewars](https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/go)
+
+[INFO]([Codewars](https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/go))
