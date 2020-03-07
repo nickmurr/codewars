@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
@@ -27,4 +28,15 @@ func GetMaxSum2(numbers []int) int {
 	}
 
 	return ans
+}
+
+func maximumSubarraySum(numbers []int) int {
+	max, subMax := 0., 0.
+
+	for _, n := range numbers {
+		subMax = math.Max(subMax+float64(n), 0.)
+		max = math.Max(subMax, max)
+	}
+
+	return int(max)
 }
