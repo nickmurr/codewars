@@ -5,9 +5,9 @@ import (
 )
 
 func main() {
-	test2 := GetMaxSum2([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4})
-	// test2 := GetMaxSum2([]int{-2, -1, -3, -4, -1, -2, -1, -5, -4})
-	fmt.Println(test2)
+	test1 := GetMaxSum2([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4})
+	test2 := GetMaxSum2([]int{-2, -1, -3, -4, -1, -2, -1, -5, -4})
+	fmt.Println(test1,test2)
 }
 
 func max(a, b int) int {
