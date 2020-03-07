@@ -21,9 +21,9 @@ func main() {
 func PlayPass(s string, shift int) string {
 	r := strings.Map(func(r rune) rune {
 		return caesar(r, shift)
-	}, Reverse(strings.ToLower(s)))
+	}, strings.ToLower(s))
 
-	x := strings.Split(Reverse(r), "")
+	x := strings.Split(r, "")
 	out := []string{}
 	for i, v := range x {
 		// match, _ := regexp.Match("/[a-zA-Z]/", []byte(v))
@@ -38,10 +38,9 @@ func PlayPass(s string, shift int) string {
 }
 
 func caesar(r rune, shift int) rune {
-	// Shift character by specified number of places.
-	// ... If beyond range, shift backward or forward.
-
 	stringMatch, _ := regexp.Match("[a-zA-Z]", []byte{byte(r)})
+	numMatch, _ := regexp.Match("[0-9]", []byte{byte(r)})
+
 	if stringMatch {
 		s := int(r) + shift
 		if s > 'z' {
@@ -51,16 +50,15 @@ func caesar(r rune, shift int) rune {
 		}
 		return rune(s)
 	}
-	numMatch, _ := regexp.Match("[0-9]", []byte{byte(r)})
 
 	if numMatch {
 		atoi, _ := strconv.Atoi(string(r))
-		// return r+5
 		return rune(9 - atoi + 26 + 22)
 	}
 
 	return r
 }
+
 func Reverse(s string) string {
 	runes := []rune(s)
 	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
