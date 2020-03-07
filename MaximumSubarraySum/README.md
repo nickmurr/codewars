@@ -13,4 +13,4 @@ Empty list is considered to have zero greatest sum. Note that the empty list or 
 
 [Codewars](https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/go)
 
-[INFO](https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/go)
+[INFO](https://e-maxx.ru/algo/maximum_average_segment)
