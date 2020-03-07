@@ -27,3 +27,5 @@ The ball can only be seen if the height of the rebounding ball is strictly great
 (Condition 2) not fulfilled).
 ```
 [Codewars](https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/go)
+
+[INFO]([Codewars](https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/go))
