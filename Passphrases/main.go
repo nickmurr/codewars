@@ -5,6 +5,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 func main() {
@@ -19,22 +20,12 @@ func main() {
 }
 
 func PlayPass(s string, shift int) string {
-	r := strings.Map(func(r rune) rune {
+	stringMap := strings.Map(func(r rune) rune {
 		return caesar(r, shift)
 	}, strings.ToLower(s))
+	
+	return CaseSensetive(stringMap)
 
-	x := strings.Split(r, "")
-	out := []string{}
-	for i, v := range x {
-		// match, _ := regexp.Match("/[a-zA-Z]/", []byte(v))
-		if i%2 == 0 {
-			out = append(out, strings.ToUpper(v))
-			continue
-		}
-		out = append(out, strings.ToLower(v))
-
-	}
-	return Reverse(strings.Join(out, ""))
 }
 
 func caesar(r rune, shift int) rune {
@@ -65,4 +56,43 @@ func Reverse(s string) string {
 		runes[i], runes[j] = runes[j], runes[i]
 	}
 	return string(runes)
+}
+
+func CaseSensetive(str string) string {
+	out := []string{}
+	x := strings.Split(str, "")
+
+	for i, v := range x {
+		if i%2 == 0 {
+			out = append(out, strings.ToUpper(v))
+			continue
+		}
+		out = append(out, strings.ToLower(v))
+	}
+
+	return Reverse(strings.Join(out, ""))
+}
+
+
+func transform(r rune, shift int32) rune {
+	if unicode.IsLower(r) { r = 'a' + (r - 'a' + shift) % 26 }
+	if unicode.IsUpper(r) { r = 'A' + (r - 'A' + shift) % 26 }
+	if unicode.IsDigit(r) { r = '9' - r + '0' }
+	return r
+}
+
+func PlayPass2(s string, n int) string {
+	// Step 1
+	p := ""
+	for i, r := range s {
+		r = transform(r, int32(n))
+		if i % 2 == 0 && unicode.IsLetter(r) {
+			r = unicode.ToUpper(r)
+		} else {
+			r = unicode.ToLower(r)
+		}
+		p = string(r) + p
+	}
+
+	return p
 }
