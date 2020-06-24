@@ -40,7 +40,7 @@ fn comp(a: Vec<i64>, mut b: Vec<i64>) -> bool {
 mod tests {
     use super::*;
 
-    fn testing(a: Vec<i64>, b: Vec<i64>, exp: bool) -> () {
+    fn testing(a: Vec<i64>, b: Vec<i64>, exp: bool) {
         assert_eq!(comp(a, b), exp)
     }
 
