@@ -32,4 +32,4 @@ fn fast(c: &mut Criterion) {
     c.bench_function("fib 20 fast", |b| b.iter(|| fibonacci_fast(20)));
 }
 
-criterion_group!(fibonaccis, slow, fast);
+// criterion_group!(fibonaccis, slow, fast);
