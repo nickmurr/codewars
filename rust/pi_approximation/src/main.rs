@@ -5,29 +5,6 @@ fn main() {
 fn rnd10(f: f64) -> f64 {
     (f * 1e10).round() / 1e10
 }
-// public: static string iterPi(double epsilon){
-//   if(epsilon == 0.0000001)
-//     return "[10000001, 3.1415927536]";  // fix for weird test
-
-//   unsigned int den = 3;
-//   long cnt = 1;
-//   int prefix = 1;
-//   long double pi = 1.0;
-//   while(PiApprox::abs(4*pi - M_PI) >= epsilon){
-//     prefix = cnt%2 == 0 ? 1 : -1;
-//     pi += prefix * (1.0/den);
-//     cnt++;
-//     den += 2;
-//   }
-
-//   string iter = to_string(cnt);
-//   stringstream ss;
-//   string spi;
-//   ss << setprecision(11) << 4*pi;
-//   ss >> spi;
-//   string s = "["+iter+", "+spi+"]";
-//   return s;
-// }
 
 fn iter_pi(epsilon: f64) -> (i32, f64) {
     let mut den = 3f64;
