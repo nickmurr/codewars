@@ -1,26 +1,25 @@
+use std::iter::FromIterator;
+use std::iter::Iterator;
+
 fn main() {
     descending_order(1286283);
 }
 
 fn descending_order(x: u64) -> u64 {
-    if x < 10 {
-        return x;
-    }
-    let mut digits: Vec<_> = x
-        .to_string()
-        .chars()
-        .map(|d| d.to_digit(10).unwrap())
-        .collect();
+    let my_str: &str = &(format!("{:?}", x))[..];
+    let reversed = my_str.chars().rev().collect::<String>();
 
-    digits.sort();
-    digits.reverse();
-    digits.join(", ");
+    let mut chars: Vec<char> = reversed.chars().collect();
+    chars.sort_by(|a, b| b.cmp(a));
+    let s: String = chars.into_iter().collect();
+    let my_num: u64 = s.parse().unwrap();
+    my_num
+}
 
-    return x;
-
-    // let my_str: String = format!("{:?}", x);
-    // let reversed = my_str.chars().rev().collect::<String>();
-    // return reversed.parse().unwrap();
+fn descending_order2(x: u64) -> u64 {
+    let mut result = x.to_string().chars().collect::<Vec<char>>();
+    result.sort_by(|a, b| b.cmp(a));
+    String::from_iter(result).parse::<u64>().unwrap()
 }
 
 #[test]
