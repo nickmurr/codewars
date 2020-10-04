@@ -1,5 +1,5 @@
 [package]
-name = "rgb_to_hex"
+name = "binominal_coeficient"
 version = "0.1.0"
 authors = ["nickmurr <nickmur72@gmail.com>"]
 edition = "2018"
