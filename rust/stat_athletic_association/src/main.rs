@@ -12,20 +12,13 @@ struct Stat {
 
 impl Stat {
     fn new(s: &str) -> Stat {
-        let mut map = s.
-            split(", ")
+        let mut map = s
+            .split(", ")
             .into_iter()
-            .map(|x| {
-                let vec_sum = x
-                    .split("|")
-                    .map(|x| i32::from_str(x).unwrap_or(0)).collect();
-
-                Stat::to_sec(&vec_sum)
-            })
+            .map(|x| Stat::to_sec(&x.split("|").map(|x| i32::from_str(x).unwrap_or(0)).collect()))
             .collect::<Vec<i32>>();
 
         map.sort();
-
         Stat { map }
     }
 
@@ -40,8 +33,7 @@ impl Stat {
     }
 
     fn average(&self) -> i32 {
-        let sum = self.map.iter().fold(0, |acc, curr| acc + curr);
-        (sum as usize / self.map.len()) as i32
+        (self.map.iter().fold(0, |acc, curr| acc + curr) as usize / self.map.len()) as i32
     }
 
     fn median(&self) -> i32 {
@@ -67,11 +59,7 @@ fn stati(strg: &str) -> String {
 
     let stat = Stat::new(strg);
 
-    format!("Range: {} Average: {} Median: {}",
-            Stat::string(stat.range()),
-            Stat::string(stat.average()),
-            Stat::string(stat.median()),
-    )
+    format!("Range: {} Average: {} Median: {}", Stat::string(stat.range()), Stat::string(stat.average()), Stat::string(stat.median()), )
 }
 
 #[cfg(test)]
